@@ -6,6 +6,7 @@
   },
   "setting": {
     "urlCheck": true,
+    "minified": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
