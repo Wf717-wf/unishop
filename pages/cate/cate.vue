@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<my-search @click="gotoSearch()"></my-search>
 		<view class="scroll-view-container">
 			<!-- 左侧的滚动视图区域 -->
 			<scroll-view class="left-scroll-view" scroll-y :style="{height: wh + 'px'}">
@@ -47,7 +48,7 @@
 		methods: {
 			getWindowHeight() {
 				const sysInfo = uni.getSystemInfoSync()
-				this.wh = sysInfo.windowHeight
+				this.wh = sysInfo.windowHeight-55
 			},
 			async getCateList() {
 				const {data: res} = await uni.$http.get("/api/public/v1/categories")
@@ -61,8 +62,14 @@
 				this.active = i
 				//为二级分类列表重新赋值
 				this.cateLevel2 = this.cateList[i].children
+			},
+			gotoSearch(){
+				uni.navigateTo({
+					url:'/subpkg/search/search'
+				})
 			}
-		}
+		},
+		 
 	}
 </script>
 
@@ -72,18 +79,15 @@
 
 		.left-scroll-view {
 			width: 120px;
-
 			.left-scroll-view-item {
 				line-height: 60px;
 				background-color: #f7f7f7;
 				text-align: center;
 				font-size: 12px;
-
 				// 激活项的样式
 				&.active {
 					background-color: #ffffff;
 					position: relative;
-
 					// 渲染激活项左侧的红色指示边线
 					&::before {
 						content: ' ';
@@ -100,7 +104,6 @@
 			}
 		}
 	}
-
 	.cate-lv2-title {
 		font-size: 12px;
 		font-weight: bold;
