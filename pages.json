@@ -58,11 +58,20 @@
 	            
 	            }
 	             
-	        ]
+	            ,{
+                    "path" : "search/search",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "黑马优购",
 		"navigationBarBackgroundColor": "#87CEFA",
 		"backgroundColor": "#FFFFFF"
